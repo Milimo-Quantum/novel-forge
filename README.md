@@ -4,6 +4,7 @@ NovelForge is a sophisticated AI authorship platform that orchestrates a **colla
 
 ---
 
+![Novel Forge Screenshot](assets/screenshots/1.png)
 ## Key Features
 
 - **Persistent Graph Workflow:** Built with `pydantic_graph`, defining a detailed, checkpointed graph of 40+ nodes covering market analysis, concept development, outlining, worldbuilding, character creation, writing, review, editing, formatting, exporting, and reporting.
@@ -16,7 +17,7 @@ NovelForge is a sophisticated AI authorship platform that orchestrates a **colla
 - **Multi-Stage Review Pipeline:** Includes peer review simulation, editorial review, consistency checks, style refinement, flow enhancement, structural and line editing, coordinated via explicit graph nodes.
 - **Quality Metrics & Heuristics:** Calculates readability scores (Flesch-Kincaid, SMOG, Coleman-Liau), dialogue ratio, description density, engagement, and style consistency to guide rewrites.
 - **Publishing Preparation:** Generates front/back matter, metadata, and exports to Markdown, EPUB, PDF, DOCX.
-- **Rich Streamlit UI:** Authentication, concept input, parameter tuning, live progress streaming, interactive charts, approval workflow, multi-format export.
+- **Rich Streamlit UI:** Authentication, concept input, parameter tuning, live progress streaming, interactive charts (POV distribution, agent activity, chapter progress), multi-format export (Markdown, EPUB, PDF, DOCX).
 - **Local & Cloud LLM Support:** Integrates with Ollama (local models) and OpenRouter (cloud models) via OpenAI-compatible APIs.
 - **Logfire Integration:** Optional detailed monitoring and tracing.
 - **Version Control:** Maintains full version history of state and chapters, supporting diffs, restores, and annotations.
@@ -33,55 +34,62 @@ NovelForge is a sophisticated AI authorship platform that orchestrates a **colla
 - There are no arbitrary or restrictive “concept integrity” checks: the workflow is fully agent-driven, empowering creative and meaningful evolution of the core idea.
 - This approach ensures maximum flexibility, robustness, and creative power, strictly following the pydantic-ai agent framework.
 
-1. **Start Generation:** Initialize state with concept and config.
-2. **Generate Publishing Proposal:** Market analysis, audience, comparables, genre positioning.
-3. **Generate Title:** Catchy book title.
-4. **Develop Concept:** Refine and expand initial idea.
-5. **Create Outline:** Chapter-by-chapter breakdown.
-6. **Build World & Develop Characters:** Parallel generation with feedback refinement.
-7. **Refine World & Characters:** Cross-inform details.
-8. **Write Chapters:** Multi-agent writing (narrative, description, dialogue, continuity), iterative review/revision.
-9. **Generate Summaries:** Chapter and combined summaries for context.
-10. **Verify Cross-References:** Annotate, auto-update, and map references.
-11. **Review Book:** Multi-stage review pipeline.
-12. **Evaluate Quality Metrics:** Readability, genre heuristics, style, engagement.
-13. **Generate Front & Back Matter:** Copyright, dedication, about author, acknowledgments.
-14. **Assemble Book:** Combine all content.
-15. **Polish Book:** Final editing.
-16. **Format Book:** Consistent formatting.
-17. **Save & Export:** Markdown, EPUB, PDF, DOCX, plus stats.
+1.  **Start Generation:** Initialize state with concept and config.
+2.  **Market Analysis & Positioning:** Analyze market, genre, audience, comparables.
+3.  **Generate Publishing Proposal:** Create a proposal based on market insights.
+4.  **Generate Title:** Create a catchy book title.
+5.  **Develop Concept:** Refine and expand the initial idea using extracted elements and market insights.
+6.  **Plot Scaffolding & Pacing:** Generate plot outline, adjust pacing, create transition plans.
+7.  **Plot Architecture:** Design overall plot structure and arcs.
+8.  **Create Outline:** Generate a detailed chapter-by-chapter outline.
+9.  **Build World & Develop Characters:** Generate world details and character profiles.
+10. **Refine World & Characters:** Cross-inform world and character details based on each other.
+11. **Write Chapters:** Coordinate multi-agent writing (narrative, description, dialogue) with iterative feedback and continuity checks. Includes internal review/revision loops per chapter.
+12. **Verify Cross-References:** Annotate, auto-update, and map references.
+13. **Generate Summaries:** Create chapter and combined summaries for context.
+14. **Multi-Stage Review:** Execute parallel reviews (Peer, Editorial, Consistency, Style, Flow).
+15. **Aggregate Reviews & Decide:** Combine feedback, detect conflicts, decide on rewrites or proceed. (May loop back to Write Chapters).
+16. **Evaluate Quality Metrics:** Calculate readability, heuristics, etc. (May trigger rewrites).
+17. **Generate Front & Back Matter:** Create copyright, dedication, about author, acknowledgments.
+18. **Assemble Book:** Combine approved chapters and front/back matter.
+19. **Polish Book:** Perform final polishing edits.
+20. **Format Book:** Apply consistent formatting.
+21. **Save & Export:** Save final Markdown, generate EPUB, PDF, DOCX, and save stats JSON.
+22. **Final Report:** Generate a summary report of the process.
 
 ---
 
 ## User Interface Enhancements
 
-- **Login System:** Secure access with username/password.
-- **Drag-and-Drop Plot Board:** Reorder chapters interactively.
-- **Editable Character Table:** Modify character profiles in a spreadsheet view.
-- **Interactive Charts:** Visualize POV distribution, agent activity, chapter progress.
-- **Export Options:** Download book in multiple formats.
-- **Approval Workflow:** Approve/refine concept, outline, characters before generation.
-- **Live Progress Streaming:** Real-time updates during generation.
+- **Login System:** Secure access with username/password ([`streamlit-authenticator`](https://github.com/mkhorasani/Streamlit-Authenticator)).
+- **Interactive Charts:** Visualize POV distribution, agent activity, and chapter progress using [`streamlit-echarts`](https://github.com/andfanilo/streamlit-echarts).
+- **Export Options:** Download final book in Markdown, EPUB, PDF, and DOCX formats, plus JSON stats.
+- **Live Progress Streaming:** Real-time updates and AI output during generation.
+- **Configuration:** Set concept, chapters, model, temperature, iteration limits via UI.
+- **Monitoring:** View detailed stats and system resource usage.
+- *Future Enhancements:* Planned features include interactive plot boards and character editors.
+
+![Novel Forge Screenshot](assets/screenshots/2.png)
 
 ---
 
-## Agent Specializations
+## Key Agent Specializations
 
-- **Concept Developer**
-- **Master Story Architect (Outliner)**
-- **World Weaver**
-- **Character Alchemist**
-- **Master Wordsmith (Writer)**
-- **Dialogue Specialist**
-- **Description Architect**
-- **Plot Continuity Guardian**
-- **Critical Reader (Reviewer)**
-- **Literary Polisher (Editor)**
-- **Prose Stylist**
-- **Narrative Architect (Flow Enhancer)**
-- **Formatting Specialist**
+NovelForge employs a diverse team of AI agents, each with a specific role. Key agents include:
 
-Agents exchange explicit feedback and are dynamically configured with adaptive model selection.
+- **Market Analyst & Proposal Agents:** Analyze market, genre, audience, comps to generate a publishing proposal.
+- **Concept Developer:** Refines the initial idea into a robust concept.
+- **Plot Architect & Outliner:** Design plot structure and chapter outlines.
+- **World Weaver & Character Alchemist:** Create detailed world settings and character profiles.
+- **Writing Team (Writer, Dialogue Specialist, Description Architect):** Collaboratively draft chapters with iterative feedback.
+- **Review & Editing Team (Reviewer, Editor, Consistency Checker, Stylist, Flow Enhancer):** Perform multi-stage reviews and edits.
+- **Formatting & Export Agents:** Prepare the final manuscript in various formats.
+
+*Refer to [`novelForge_architecture.md`](novelForge_architecture.md) for a comprehensive list and details.*
+
+Agents exchange structured feedback and utilize adaptive model selection (Ollama/OpenRouter) for optimal performance.
+
+
 
 ---
 
@@ -91,11 +99,11 @@ Agents exchange explicit feedback and are dynamically configured with adaptive m
 
 - Python 3.9+
 - [Ollama](https://ollama.ai/) installed and running
-- Required Python packages:
+- Required Python packages (install via pip):
   ```bash
   pip install -r requirements.txt
-  pip install streamlit-authenticator streamlit-aggrid streamlit-echarts streamlit-sortables ebooklib fpdf python-docx markdown
   ```
+  *(Ensure all dependencies from `requirements.txt` are installed)*
 
 ### Model Setup
 
@@ -146,8 +154,8 @@ streamlit run app.py
 - **Monitoring:** Progress, agent activity, system resources.
 - **Quality Assurance:** Readability, genre alignment, style, engagement.
 - **Cross-References:** Annotated, auto-updated, and visualizable.
-- **User Control:** Freeze flags, feedback, approval checkpoints.
-- **Professional Publishing:** Proposal, front/back matter, multi-stage editing.
+- **User Control:** Freeze flags for concept, outline, etc.; inject feedback.
+- **Professional Publishing:** Publishing proposal generation, front/back matter, multi-stage editing.
 - **Adaptive Model Selection:** Chooses best model per task.
 - **Export Formats:** Markdown, EPUB, PDF, DOCX, JSON stats.
 

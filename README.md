@@ -59,6 +59,8 @@ NovelForge is a sophisticated AI authorship platform that orchestrates a **colla
 
 ---
 
+![Novel Forge Screenshot](assets/screenshots/2.png)
+
 ## User Interface Enhancements
 
 - **Login System:** Secure access with username/password ([`streamlit-authenticator`](https://github.com/mkhorasani/Streamlit-Authenticator)).
@@ -68,8 +70,6 @@ NovelForge is a sophisticated AI authorship platform that orchestrates a **colla
 - **Configuration:** Set concept, chapters, model, temperature, iteration limits via UI.
 - **Monitoring:** View detailed stats and system resource usage.
 - *Future Enhancements:* Planned features include interactive plot boards and character editors.
-
-![Novel Forge Screenshot](assets/screenshots/2.png)
 
 ---
 

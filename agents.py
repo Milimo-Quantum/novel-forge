@@ -273,7 +273,7 @@ class BookAgents:
 
             # Explicit provider map
             self.provider_map = {
-                "google/gemma-3-27b-it:free": "openrouter",
+                "meta-llama/llama-4-scout:free": "openrouter",
                 # Add other OpenRouter models here
             }
 

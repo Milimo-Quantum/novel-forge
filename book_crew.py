@@ -179,7 +179,7 @@ class BookCrew:
             return f"Failed to resume from checkpoint '{checkpoint_label}': {e}"
     # Class-level configuration (can be moved to GenerationConfig defaults)
     BASE_URL = 'http://localhost:11434'
-    DEFAULT_MODEL = "google/gemma-3-27b-it:free"
+    DEFAULT_MODEL = "meta-llama/llama-4-scout:free"
     MIN_CHAPTERS = 1
     MAX_CHAPTERS = 50
     DEFAULT_CHAPTERS = 3 # Reduced default for quicker testing

@@ -393,7 +393,7 @@ class NovelForgeApp:
             # Add OpenRouter models statically
             openrouter_models = [
                 {
-                    "name": "google/gemma-3-27b-it:free",
+                    "name": "meta-llama/llama-4-scout:free",
                     "details": {
                         "family": "OpenRouter",
                         "parameter_size": "Unknown",
